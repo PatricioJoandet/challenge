@@ -1,0 +1,25 @@
+<Modal>
+        <div className=' bg-zinc-200 opacity-80 fixed inset-0 z-50'>
+          <div className='flex h-screen justify-center items-center'>
+            <div className='flex-col justify-center bg-white py-12 px-24'>
+              <div className='flex gap-3'>
+                <button className='text-black bg-green-700 px-3 py-1 rounded-md hover' onClick={()=> addAnother()}>Ingresar otro usuario</button>
+                <button className='text-black bg-green-700 px-3 py-1 rounded-md' onClick={()=> navigateTo('/users')}>Ver usuarios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Modal>
+
+
+      <Dialog open={showModal} onClose={()=> setShowModal(false)} className="relative z-50">
+        <div className="fixed inset-0 bg-black/30" aria-hidden="true" >
+        <div className="fixed inset-0 flex items-center justify-center p-4">
+          <Dialog.Panel className='mx-auto max-w-sm rounded bg-white'>
+            <Dialog.Title>respuesta guardada</Dialog.Title>
+            <button onClick={()=> addAnother()}>Otra respuesta</button>
+            <button onClick={()=> navigateTo('/users')}>Respuestas</button>
+          </Dialog.Panel>
+        </div>
+        </div>
+      </Dialog> 

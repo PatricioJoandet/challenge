@@ -18,6 +18,7 @@ const UsersContainer = () => {
         email: doc.data().email,
         country_of_origin: doc.data().country_of_origin,
         birth_date: doc.data().birth_date,
+        id: doc.id,
       }])
     })
     setLoading(false);
