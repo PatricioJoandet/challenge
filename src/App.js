@@ -1,11 +1,18 @@
-import './App.css';
+import './index.css';
 import FormContainer from './Components/FormContainer.js'
+import UsersContainer from './Components/UsersContainer.js';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 
 function App() {
   return (
-    <div className="App">
-      <FormContainer />
+    <div className="bgGradient">
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<FormContainer />}/>
+          <Route path='/users' element={<UsersContainer />}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

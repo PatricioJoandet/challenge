@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html{
+    background: repeating-radial-gradient(circle farthest-corner at -1% 0,#d4034f,#90088b 30%,#662d91 53%,#90088b 78%,#b1005e);
+}
+

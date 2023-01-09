@@ -1,5 +1,6 @@
 import '../index.css'
 import { useState, useEffect } from 'react';
+import 'animate.css';
 
 import Form from './Form.js';
 
@@ -22,11 +23,10 @@ const FormContainer = () => {
 
   },[]);
 
-
+  // repeating-radial-gradient(circle farthest-corner at -1% 0,#d4034f,#90088b 30%,#662d91 53%,#90088b 78%,#b1005e);
   return(
-    <div className='min-h-[calc(85vh-50px)]  bg-gradient-to-r from-green-400 to-blue-500 text-white'>
-      <h1 className='text-3xl font-bold text-center py-2'> Challenge Greydive</h1>
-      <Form data={data} />
+    <div className='h-[100vh]  text-white'>
+      <Form className='animate__animated animate__slideInDown' data={data} />
     </div>
   )
 }
