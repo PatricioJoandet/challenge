@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection,  } from 'firebase/firestore';
 import { Oval } from "react-loader-spinner";
 import db from "../firebase/index.js";
 import Users from './Users.js';
@@ -11,16 +11,18 @@ const UsersContainer = () => {
 
   const fetchData = async () => {
     const rawData = await getDocs(collection(db, 'users'));
+    let processedData = [];
 
-    rawData.forEach((doc) =>{
-      setData((data) => [ ...data, {
-        full_name: doc.data().full_name,
-        email: doc.data().email,
-        country_of_origin: doc.data().country_of_origin,
-        birth_date: doc.data().birth_date,
-        id: doc.id,
-      }])
-    })
+    rawData.forEach((item) =>{
+      processedData.push({
+        full_name: item.data().full_name,
+        email: item.data().email,
+        country_of_origin: item.data().country_of_origin,
+        birth_date: item.data().birth_date,
+        id: item.id,
+      });
+    });
+    setData(processedData)
     setLoading(false);
   }
 
