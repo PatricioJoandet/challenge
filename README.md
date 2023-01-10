@@ -23,7 +23,6 @@ En la página '/users', se traen todas las respuestas guardadas y se muestran.
 
 ```bash
   git clone https://github.com/PatricioJoandet/challenge.git
-  cd my-project
   npm install
   npm run start
 ```
