@@ -38,15 +38,6 @@ const Form = ({ data }) =>{
     await setUserData({...userData, [e.target.name] : e.target.value})
   }
 
-
-/*   const validateEmpty = () =>{
-    if(userData.full_name !== "" && userData.email  !== "" && userData.birth_date  !== "" && userData.country_of_origin !== "" && checked === true){
-      fireModal()
-    }else{
-      return false
-    }
-  } */
-
   const fireModal = () => {
     Swal.fire({
       title: 'Respuesta guardada',
@@ -61,7 +52,7 @@ const Form = ({ data }) =>{
   return(
     <div className='flex flex-col items-center justify-center h-[75%] mx-auto container animate__animated animate__slideInDown'>
       <form onSubmit={(e) => handleSubmit(e)} className='w-100 lg:w-1/3 mx-auto flex flex-col items-start space-y-4 p-4 text-white '>
-        <div className=' w-full'>
+        <div className=' w-full mb-3'>
           <img className='w-[50%]' src='logo.png' alt='logo'/>
         </div>
         {data.map((element)=>{
@@ -75,22 +66,23 @@ const Form = ({ data }) =>{
                 )
               })} </select> </div>:
               element.type === "checkbox" ? <label htmlFor={element.name}>{element.label}
-                <input onChange={()=> setChecked(!checked)} type={element.type} name={element.name} required={element.required}></input>
+                <input onChange={()=> setChecked(!checked)} type={element.type} name={element.name} required={element.required} className='mx-2'></input>
               </label> :
               element.type === "submit" ? <div className='flex flex-row gap-2'>
                 <button type={element.type} className='bg-[#d30070] px-4 py-1 '>{element.label}</button>
                 <button type='button' onClick={()=> navigateTo('/users')} className='bg-[#d30070] px-4 py-1 '>Entradas</button>
               </div> :
               element.type === "date" ? <div>
-                <label  htmlFor={element.name}>{element.label}</label>
-                <input type={element.type} name={element.name} max={date.toISOString().slice(0, 10)} onChange={(e) => handleChange(e)} placeholder={element.label} required={element.required} className=' text-black rounded-md px-1 py-2 w-[100%] hover:placeholder-black' />
+                <label  htmlFor={element.name}><span>{element.label}</span></label>
+                <input type={element.type} name={element.name} max={date.toISOString().slice(0, 10)} onChange={(e) => handleChange(e)}  required={element.required} className=' outline-none text-black px-1 py-2 w-[100%] bg-transparent ' />
               </div>:
-              <div>
-                <label htmlFor={element.name}>{element.label}</label>
-                <input type={element.type} name={element.name} onChange={(e) => handleChange(e)} placeholder={element.label} required={element.required} className=' text-black rounded-md px-1 py-2 w-[100%] hover:placeholder-black' />
+              <div className='divForm'>
+                <input type={element.type} name={element.name} onChange={(e) => handleChange(e)} required={element.required} autoComplete="a" className='text-black  px-1 py-2 w-[100%] h-[50%] bg-transparent' />
+                <label htmlFor={element.name} className='label-name'><span className='content-name'>{element.label}</span></label>
               </div>
               }
             </div>
+
           )
         })}
       </form>

@@ -1,8 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 html{
     background: repeating-radial-gradient(circle farthest-corner at -1% 0,#d4034f,#90088b 30%,#662d91 53%,#90088b 78%,#b1005e);
+    font-family: "Roboto";
 }
 
+.divForm{
+    position: relative;
+    overflow: hidden;
+}
+
+.divForm input{
+    padding-top: 20px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+.divForm label{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+}
+
+.divForm label::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    left: 0px;
+    bottom: -1px;
+    transform: translateX(-100%);
+}
+
+.content-name {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.divForm input:focus + .label-name .content-name, .divForm input:valid + .label-name .content-name{
+    transform: translateY(-90%); 
+}
+
+.divForm input:focus + .label-name::after, .divForm input:valid + .label-name::after{
+    transform: translateX(0%);
+}
+
+input[type='date'] {
+    border-bottom: 1px solid black;
+}
