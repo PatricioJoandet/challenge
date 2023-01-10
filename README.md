@@ -36,7 +36,7 @@ En la página '/users', se traen todas las respuestas guardadas y se muestran.
 - Animate.css
 
 
-## Authors
+## Autor
 
 - [@PatricioJoandet](https://github.com/PatricioJoandet) 🚀
 
