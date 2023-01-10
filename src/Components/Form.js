@@ -25,12 +25,12 @@ const Form = ({ data }) =>{
 
   const handleSubmit = async (e) => {
       e.preventDefault();
-/*       await addDoc(usersCollection, {
+       await addDoc(usersCollection, {
         full_name: userData.full_name,
         email: userData.email,
         birth_date: userData.birth_date,
         country_of_origin: userData.country_of_origin,
-      }); */
+      }); 
       fireModal();
   }
   
@@ -58,7 +58,6 @@ const Form = ({ data }) =>{
       }
     })
     }
-  
 
   return(
     <>
