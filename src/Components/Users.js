@@ -41,17 +41,17 @@ const Users = (data) => {
 					{userData.slice(firstElement, lastElement).map((element) => {
 						return(
 							<div key={element.id} className="flex flex-col bg-slate-100 text-black px-3 py-2 rounded-md">
-								<div>
-									<h2>Nombre: {element.full_name}</h2>
+								<div className="flex flex-row">
+									<h2 className="font-bold">Nombre completo: </h2><span>{element.full_name}</span>
 								</div>
-								<div>
-									<h2>Email: {element.email}</h2>
+								<div className="flex flex-row">
+									<h2 className="font-bold">Email: </h2><span>{element.email}</span>
 								</div>
-								<div>
-									<h2>Pais: {element.country_of_origin}</h2>
+								<div className="flex flex-row">
+									<h2 className="font-bold">Pais: </h2><span>{element.country_of_origin}</span>
 								</div>
-								<div>
-									<h2>Fecha de nacimiento: {element.birth_date}</h2>
+								<div className="flex flex-row">
+									<h2 className="font-bold">Fecha de nacimiento: </h2><span>{element.birth_date}</span>
 								</div>
 							</div>
 						)
@@ -59,8 +59,8 @@ const Users = (data) => {
 				<div className="flex flex-row justify-start gap-3">
 					<button onClick={()=>prevPage()} className={currentPage-1===0 ? "bg-[#D3D3D3] px-4 py-1 text-white":"bg-[#d30070] px-4 py-1 hover:bg-violet-600 text-white"}>Anterior</button>
 					<p className="text-white">Página {currentPage} de {Math.ceil(userData.length/5)}</p>
-					<button onClick={()=>nextPage()} className={currentPage+1> Math.ceil(userData.length/5) ? "bg-[#D3D3D3] px-4 py-1 text-white":"bg-[#d30070] px-4 py-1 text-white"}>Siguiente</button>
-					<button onClick={()=> handleClick()} className="text-white px-4 py-1 bg-[#d30070] justify-end">Volver</button>
+					<button onClick={()=>nextPage()} className={currentPage+1> Math.ceil(userData.length/5) ? "bg-[#D3D3D3] px-4 py-1 text-white":"bg-[#d30070] px-4 py-1 text-white hover:bg-violet-600"}>Siguiente</button>
+					<button onClick={()=> handleClick()} className="text-white px-4 py-1 bg-[#d30070] justify-end hover:bg-violet-600">Volver</button>
 				</div>
 			</div>
 		</div>

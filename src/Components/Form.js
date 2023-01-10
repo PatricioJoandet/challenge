@@ -42,8 +42,9 @@ const Form = ({ data }) =>{
     Swal.fire({
       title: 'Respuesta guardada',
       icon: 'success',
+      iconColor: '#d30070',
       confirmButtonText: 'Respuestas',
-      
+      confirmButtonColor: '#d30070',      
     })
     .then(() => navigateTo('/users'))
     }
@@ -69,15 +70,15 @@ const Form = ({ data }) =>{
                 <input onChange={()=> setChecked(!checked)} type={element.type} name={element.name} required={element.required} className='mx-2'></input>
               </label> :
               element.type === "submit" ? <div className='flex flex-row gap-2'>
-                <button type={element.type} className='bg-[#d30070] px-4 py-1 '>{element.label}</button>
-                <button type='button' onClick={()=> navigateTo('/users')} className='bg-[#d30070] px-4 py-1 '>Entradas</button>
+                <button type={element.type} className='bg-[#d30070] px-4 py-1 hover:bg-violet-600'>{element.label}</button>
+                <button type='button' onClick={()=> navigateTo('/users')} className='bg-[#d30070] px-4 py-1 hover:bg-violet-600'>Entradas</button>
               </div> :
               element.type === "date" ? <div>
                 <label  htmlFor={element.name}><span>{element.label}</span></label>
                 <input type={element.type} name={element.name} max={date.toISOString().slice(0, 10)} onChange={(e) => handleChange(e)}  required={element.required} className=' outline-none text-black px-1 py-2 w-[100%] bg-transparent ' />
               </div>:
               <div className='divForm'>
-                <input type={element.type} name={element.name} onChange={(e) => handleChange(e)} required={element.required} autoComplete="a" className='text-black  px-1 py-2 w-[100%] h-[50%] bg-transparent' />
+                <input type={element.type} name={element.name} onChange={(e) => handleChange(e)} required={element.required} autoComplete="a" className='text-black  px-1 py-2 w-[100%] h-[50%] bg-transparent ' />
                 <label htmlFor={element.name} className='label-name'><span className='content-name'>{element.label}</span></label>
               </div>
               }
